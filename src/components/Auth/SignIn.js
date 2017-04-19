@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Avenir',
         paddingLeft: 20,
         borderRadius: 20,
-        marginBottom: 20
+        marginBottom: 20,
+        underlineColor: 'transparent'
     },
     signInTextStyle: {
         color: '#FFF', fontFamily: 'Avenir', fontWeight: '600', paddingHorizontal: 20

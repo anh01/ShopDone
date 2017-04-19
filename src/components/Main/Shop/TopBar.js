@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingLeft: 20,
         fontFamily: 'Avenir',
+        paddingVertical: 0
     },
     menuIcon: {
         width: 25,

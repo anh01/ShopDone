@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import MapView from 'react-native-maps';
 import map from '../../../../media/appIcon/map.png';
 
 import phoneIcon from '../../../../media/appIcon/phone.png';
@@ -9,31 +10,45 @@ import locationIcon from '../../../../media/appIcon/location.png';
 
 class Contact extends Component {
     render() {
-        const { 
-            mapStyle, mapContainer, wrapper, infoContainer, 
+        const {
+            mapStyle, mapContainer, wrapper, infoContainer,
             rowInfoContainer, imageStyle, infoText
         } = styles;
         return (
             <View style={wrapper}>
                 <View style={mapContainer}>
-                    <Image source={map} style={mapStyle} />
+                    <MapView
+                        style={{ flex: 1, alignSelf: 'stretch' }}
+                        initialRegion={{
+                            latitude: 10.770876,
+                            longitude: 106.689790,
+                            latitudeDelta: 0.0922,
+                            longitudeDelta: 0.0421,
+                        }}
+                    >
+                        <MapView.Marker
+                            coordinate={{ latitude: 10.770876, longitude: 106.689790 }}
+                            title="Wear a dress"
+                            description="Hello!"
+                        />
+                    </ MapView>
                 </View>
                 <View style={infoContainer}>
                     <View style={rowInfoContainer}>
-                       <Image source={locationIcon} style={imageStyle} />
-                       <Text style={infoText}>90 Le Thi Rieng/ Ben Thanh Dist</Text>
+                        <Image source={locationIcon} style={imageStyle} />
+                        <Text style={infoText}>90 Le Thi Rieng/ Ben Thanh Dist</Text>
                     </View>
                     <View style={rowInfoContainer}>
-                       <Image source={phoneIcon} style={imageStyle} />
-                       <Text style={infoText}>(+84) 01694472176</Text>
+                        <Image source={phoneIcon} style={imageStyle} />
+                        <Text style={infoText}>(+84) 01694472176</Text>
                     </View>
                     <View style={rowInfoContainer}>
-                       <Image source={mailIcon} style={imageStyle} />
-                       <Text style={infoText}>khoaphamtraining@gmail.com</Text>
+                        <Image source={mailIcon} style={imageStyle} />
+                        <Text style={infoText}>khoaphamtraining@gmail.com</Text>
                     </View>
                     <View style={[rowInfoContainer, { borderBottomWidth: 0 }]}>
-                       <Image source={messageIcon} style={imageStyle} />
-                       <Text style={infoText}>(+84) 09877067707</Text>
+                        <Image source={messageIcon} style={imageStyle} />
+                        <Text style={infoText}>(+84) 09877067707</Text>
                     </View>
                 </View>
             </View>
@@ -44,14 +59,14 @@ class Contact extends Component {
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
     wrapper: { flex: 1, backgroundColor: '#F6F6F6' },
-    mapStyle: { 
-        width: width - 40, 
-        height: 230, 
-        alignSelf: 'center', 
-        alignItems: 'center', 
-        justifyContent: 'center' 
+    mapStyle: {
+        width: width - 40,
+        height: 230,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    mapContainer: { 
+    mapContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
@@ -63,7 +78,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2
     },
     infoContainer: {
-        padding: 10, 
+        padding: 10,
         flex: 1,
         backgroundColor: '#FFF',
         margin: 10,
